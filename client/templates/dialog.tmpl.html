@@ -1,0 +1,27 @@
+<md-dialog aria-label="Dialog"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" style="padding:0px;">
+	<ng-include src="template">
+	  </ng-include>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" ng-show="showFooter">
+      <md-button ng-click="action()" style="margin-right:20px;">
+	{{actionName}}
+      </md-button>
+      <md-button ng-click="cancel()">
+	Close
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

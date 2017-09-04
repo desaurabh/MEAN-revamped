@@ -1,0 +1,104 @@
+<div ng-cloak layout-padding layout-margin>
+    <h3 ng-if="show">Step 1</h3>
+    <p ng-if="show">Register new user</p>
+    <form name='form' layout="column">
+
+        <div layout="row">
+            <md-input-container class="md-block" flex>
+                <label>First name</label>
+                <input type='text' name='fName' ng-model='user.fName' required ng-pattern="/^[a-zA-Z]*$/" maxlength="30" minlength="2" ng-disabled="disabled" />
+                <div ng-messages='form.fName.$error'>
+                    <div ng-message='required'>First name is required</div>
+                    <div ng-message='pattern'>First name is not valid</div>
+                    <div ng-message='minlength'>Length must be greater then 2</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Last name</label>
+                <input type='text' name='lName' ng-model='user.lName' required ng-pattern="/^[a-zA-Z]*$/" maxlength="60" minlength="2" ng-disabled="disabled" />
+                <div ng-messages='form.lName.$error'>
+                    <div ng-message='required'>Last name is required</div>
+                    <div ng-message='pattern'>Last name is not valid</div>
+                    <div ng-message='minlength'>Length must be greater then 2</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container class="md-block" flex >
+                <label>Email</label>
+                <input type='text' name='email' ng-model='user.email' required ng-pattern="/^.+@.+\..+$/" maxlength="150" minlength="8"  ng-disabled="disabled" />
+                <div ng-messages='form.email.$error'>
+                    <div ng-message='required'>Email is required</div>
+                    <div ng-message='pattern'>Email is not valid</div>
+                    <div ng-message='minlength'>Length must be greater then 6</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container ng-show="show" flex>
+                <label>Password</label>
+                <input type='password' name='password' ng-model='user.password' required maxlength="16" minlength="6"/> 
+                <div ng-messages='form.password.$error'>
+                    <div ng-message='required'>Password is required</div>
+                    <div ng-message='minlength'>Minimum length 6 is required</div>
+                </div>
+            </md-input-container>
+
+
+
+        </div>
+
+        <div layout="row">
+
+            <md-input-container class="md-block" flex>
+                <label>User Role</label>
+                <md-select ng-model="user.role" name="role" required ng-disabled="disabled">
+                    <md-option ng-repeat="role in roles" value="{{role.value}}">
+                        {{role.abbrev}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="form.role.$error">
+                    <div ng-message="required">Please select a user role</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container class="md-block" flex>
+                <label>Gender</label>
+                <md-select ng-model="user.gender" name="gender" required ng-disabled="disabled">
+                    <md-option ng-repeat="gender in ['Male','Female']" value="{{gender}}">
+                        {{gender}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="form.gender.$error">
+                    <div ng-message="required">Please select a gender</div>
+                </div>
+            </md-input-container>
+
+        </div>
+
+        <md-datepicker ng-model="user.born" md-placeholder="Birth date" style="padding-top:14px;" ng-disabled="disabled">
+        </md-datepicker>
+
+
+        <div layout="row" layout-xs="column" layout-align-gt-sm="end center" flex style="padding:0px;">
+<span flex></span>
+            <md-button class="md-primary md-raised" ng-disabled='(form.email.$invalid===false && form.password.$invalid===false && form.fName.$invalid===false && form.lName.$invalid===false)===false' ng-click='submit()' ng-if="show" aria-label="Submit">
+
+                <span ng-if="show">Next</span>
+                <span ng-if="!show">
+          {{submitText}}
+        </span>
+            </md-button>
+
+            <md-button class="md-primary md-raised" ng-disabled='(form.email.$invalid===false &&  form.fName.$invalid===false && form.lName.$invalid===false && disabled===false)===false' ng-click='submit()' aria-label="Submit" ng-if="!show">
+                {{submitText}}
+
+            </md-button>
+
+
+            <md-button class="md-primary md-raised" ng-click="user=null" ng-if="show">Reset</md-button>
+        </div>
+    </form>
+</div>

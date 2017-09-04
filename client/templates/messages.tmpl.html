@@ -1,0 +1,19 @@
+<div layout="row" layout-margin flex layout-align="center start">
+    <div flex-xs="100" flex="60" layout="row" class="md-whiteframe-z1" ng-show="message.data">
+
+        <div flex="80" style="padding:10px;">
+            <md-icon ng-if="message.type==='error'" style="color:#C62828;">error</md-icon>
+            <md-icon ng-if="message.type==='success'" style="color:#2E7D32;">done</md-icon>
+            <md-icon ng-if="message.type==='warning'" style="color:#FF1744;">warning</md-icon>
+            {{message.data}}
+        </div>
+
+        <div flex></div>
+
+        <md-button class="md-icon-button" ng-click="message.toggleMessage()">
+            <md-icon>close</md-icon>
+        </md-button>
+
+    </div>
+
+</div>

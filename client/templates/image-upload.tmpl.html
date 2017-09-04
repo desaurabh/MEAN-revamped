@@ -1,0 +1,29 @@
+<div ng-cloak layout-padding layout="column">
+    <div flex layout="row">
+        <div flex="37" style="margin-top:10px;">
+            <h4 style="font-weight:400; font-size:16px;">Cropped result</h4>
+            <img ng-src="{{croppedImage}}" id="croppedImage" height="120" width="120" />
+        </div>
+        <div style="max-width:500px;" flex="63" layout-margin layout-padding>
+            <div style="overflow: hidden; width:500px; height:280px;">
+                <img-crop image="image  | ngfDataUrl" result-image="croppedImage"ng-init="croppedImage=''">
+                </img-crop>
+
+                <!--	   <img ngf-thumbnail="image" style="max-width:100%; max-height:100%;" /> -->
+            </div>
+
+        </div>
+    </div>
+    <div flex ng-show='loading'>
+        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+    </div>
+
+</div>
+<md-dialog-actions layout="row">
+    <md-button ng-click="action(croppedImage, $event)" style="margin-right:20px;">
+        {{actionName}}
+    </md-button>
+    <md-button ng-click="cancel()">
+        Close
+    </md-button>
+</md-dialog-actions>

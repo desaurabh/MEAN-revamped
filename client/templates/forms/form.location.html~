@@ -1,0 +1,82 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+      <h3>Add new location</h3>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+	<md-icon>close</md-icon>
+	</md-button>
+    </div>
+</md-toolbar>
+<md-content ng-cloak layout-padding>
+    <form name="locationForm" layout="column" flex>
+        <div layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Location name</label>
+                <input type="text" name="name" ng-model="location.name" required>
+                <div ng-messages="locationForm.name.$error">
+                    <div ng-message="required">Name is required</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Email address</label>
+                <input type="email" name="email" ng-model="location.email" required>
+                <div ng-messages="locationForm.email.$error">
+                    <div ng-message="required">Email is required</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+
+            <md-input-container class="md-block" flex>
+                <label>Phone one</label>
+                <input type="text" name="phoneOne" ng-model="location.phoneOne" required>
+                <div ng-messages="locationForm.phoneOne.$error">
+                    <div ng-message="required">Phone number is required</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Phone two</label>
+                <input type="text" name="phoneTwo" ng-model="location.phoneTwo">
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+
+            <md-input-container class="md-block" flex>
+                <label>Street</label>
+                <input type="text" name="street" ng-model="location.address.street">
+            </md-input-container>
+
+
+            <md-input-container class="md-block" flex>
+                <label>Locality</label>
+                <input type="text" name="locality" ng-model="location.address.locality">
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container class="md-block">
+                <label>State</label>
+                <input type="text" name="state" ng-model="location.address.state">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>City</label>
+                <input type="text" name="city" ng-model="location.address.city">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Pincode</label>
+                <input type="text" name="pincode" ng-model="location.address.pincode">
+            </md-input-container>
+        </div>
+
+    </form>
+    <div layout="row" layout-align="end" style="padding:0px; margin-top:-10px;">
+        <md-button class="md-raised md-primary" ng-click="cancel()">Cancel</md-button>
+        <md-button class="md-raised md-primary" ng-click="save(location)">Save</md-button>
+    </div>
+</md-content>

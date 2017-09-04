@@ -1,0 +1,37 @@
+<div ng-cloak flex-sm="50" flex-xs flex-gt-md="30" flex-md="40" class="md-whiteframe-z2" layout-margin  layout-padding public>
+  <form name='loginForm' layout="column" >
+    <error-notifier></error-notifier>
+        <h3>Please login</h3>
+        <md-input-container flex>
+            <label>Username</label>
+            <input type='text' name='username' ng-model='authService.user.username' required>
+            <div ng-messages='loginForm.username.$error'>
+                <div ng-message='required'>Username is required</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>Password</label>
+            <input type='password' name='password' ng-model='authService.user.password' required>
+            <div ng-messages='loginForm.password.$error'>
+                <div ng-message='required'>Password is required</div>
+            </div>
+        </md-input-container>
+
+        <div layout="row" layout-wrap flex>
+
+            <md-checkbox ng-model="base.rememberMe" aria-label="Remember me" ng-click="base.doRememberMe()">
+                Remember me
+            </md-checkbox>
+
+        </div>
+
+        <div layout="row" layout-xs="column" flex style="padding:0px;" layout-align-gt-sm="end center">
+            <md-button flex-xs flex-sm flex-md="30" class="md-primary md-raised" ng-disabled='(loginForm.username.$invalid===false && loginForm.password.$invalid===false)===false' ng-click='authService.login()'>Login</md-button>
+        </div>
+
+    </form>
+    <div layout="row" layout-align="end center">
+        <a href="/register">New registration</a>
+    </div>
+</div>

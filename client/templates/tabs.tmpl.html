@@ -1,0 +1,10 @@
+<div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab">
+      <md-tab ng-repeat="tab in tabs" label="{{tab.label}}"  md-on-select="tab.onSelect()" md-on-deselect="tab.onDeselect()" ng-disabled="tab.disabled">
+	<ng-include src="tab.template">
+	</ng-include>
+	</md-tab>
+    </md-tabs>
+  </md-content>
+</div>

@@ -1,0 +1,19 @@
+<div ng-cloak flex layout-margin style="margin:0px;" flex="80" flex-xs="100" flex-sm="100" ng-init="withEditing=true">
+    <section class="md-whiteframe-z1 panel-form">
+        <md-toolbar class="md-primary panel-toolbar">
+            <div class="md-toolbar-tools">
+	      <!--                <span>{{tabs[selectedTab].label}}</span> -->
+	      <span>{{panelTitle}}</span>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="toggleEditing()" ng-show="withEditing">
+                    <md-icon>mode_edit</md-icon>
+                    <md-tooltip>Enable editing</md-tooltip>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <custom-tabs>
+        </custom-tabs>
+
+    </section>
+
+</div>

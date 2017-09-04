@@ -1,0 +1,47 @@
+<div ng-cloak flex flex="80" flex-xs="100" flex-sm style="margin:0px;" layout-margin layout="column" layout-align="center stretch">
+    <section class="md-whiteframe-z1 panel-form">
+        <md-toolbar flex class="md-primary panel-toolbar">
+            <div class="md-toolbar-tools">
+                <h2>Allocate users</h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+
+        <div layout="column" layout-padding>
+            <div flex layout-padding class="md-whiteframe-z1" layout="row">
+                <div layout-padding flex="77">
+                    <h4 style="margin-top:-8px;">{{location.name}}</h4>
+                    <p style="margin-top:-30px;">
+                        {{location.address.street}} {{location.address.locality}}
+                        <br/> {{location.address.city}} {{location.address.pincode}}
+                        <br/> {{location.address.state}}
+                    </p>
+                </div>
+                <div flex="23">
+		  <user-autocomplete></user-autocomplete>
+
+                </div>
+            </div>
+            <div flex>
+                <div class="md-whiteframe-z2" ng-if="assinedUsers.length>0" layout-margin>
+                    <md-list flex>
+                        <md-list-item class="md-2-line" ng-repeat="user in assinedUsers">
+                            <div class="md-list-item-text">
+                                <h3>{{user.fName}} {{user.lName}}</h3>
+                                <h4>{{user.email}}</h4>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <div ng-if="assignedUsers.length===0" layout-margin layout="row" layout-align="center center">
+                    <div layout="column" flex layout-align="center center">
+                        <md-icon style="font-size:64px;">info_outline</md-icon>
+                        <p>No user's found!</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</div>

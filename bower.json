@@ -1,0 +1,25 @@
+{
+  "name": "MEAN WEB STACK",
+  "description": "NODE APP",
+  "version": "0.0.0",
+  "homepage": "",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-material": "latest",
+    "angular-aria": "latest",
+    "angular-animate": "latest",
+    "angular-messages": "latest",
+    "angular-sanitize": "~1.4.8",
+    "angular-resource": "~1.4.9"
+  },
+  "dependencies": {
+    "angular-material-data-table": "~0.9.8",
+    "ng-file-upload-shim": "~11.2.3",
+    "ng-img-crop": "ngImgCrop#~0.3.2",
+    "ngmd-dialog": "~0.0.1",
+    "angular-loading-bar": "~0.8.0"
+  }
+}

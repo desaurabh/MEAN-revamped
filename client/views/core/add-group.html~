@@ -1,0 +1,26 @@
+<div ng-cloak flex flex="80" flex-xs="100" flex-sm style="margin:0px;" layout-margin>
+    <section class="md-whiteframe-z1 panel-form">
+        <md-toolbar flex class="md-primary panel-toolbar">
+            <div class="md-toolbar-tools">
+                <h2>Allocate users</h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+
+        <div layout="row">
+            <div flex="33">
+                {{location.name}} {{location.address.street}} {{location.address.locality}} {{location.address.city}} {{location.address.pincode}} {{location.address.state}}
+            </div>
+            <div flex="67">
+                <md-list flex>
+                    <md-list-item class="md-2-line" ng-repeat="user in assinedUsers">
+                        <div class="md-list-item-text">
+                            <h3>{{user.fName}} {{user.lName}}</h3>
+                            <h4>{{user.email}}</h4>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+        </div>
+    </section>
+</div>

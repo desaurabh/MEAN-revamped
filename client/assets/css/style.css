@@ -1,0 +1,104 @@
+.animate-hide {
+        overflow-y: hidden;
+	max-height: 500px; /* approximate max height */
+	line-height:100px;
+	transition-property: all;
+	transition-duration: .3s;
+	transition-timing-function: ease-in-out;
+}
+.animate-hide.ng-hide {
+    max-height: 0;
+    line-height: 0;
+}
+.panel-form{
+    border-radius:2px;
+}
+.panel-toolbar{
+    border-top-right-radius:2px;
+    border-top-left-radius:2px;
+}
+
+
+.avatar {
+    float: left;
+    position: relative;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid #c7b89e;
+    -webkit-box-shadow: 0 0 0 1.5px #fff, 0 0 0 2px #999, 0 2px 3px 5px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 0 1.5px #fff, 0 0 0 2px #999, 0 2px 3px 5px rgba(0,0,0,.2);
+    box-shadow: 0 0 0 1.5px #fff, 0 0 0 2px #999, 0 2px 3px 5px rgba(0,0,0,.2);
+}
+
+.rectangular-avatar{
+    border-radius:3px;
+    boder:1px inset;
+    width:160px;
+    height:160px;
+}
+.edit-avatar{
+    color:rgba(35, 33, 33, 0.72);
+    position: absolute;
+    top: 0;
+    margin-top: 162px;
+    width: 160px;
+    left: 0;
+    margin-left: 24px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    text-align:center;
+    transition-delay:0.2s;
+    transition-duration:0.5s;
+    border-bottom-left-radius:2px;
+    border-bottom-right-radius:2px;
+}
+.edit-avatar:hover{
+    background:rgba(29, 27, 27, 0.45);
+    color:whitesmoke;
+}
+.loader{
+    box-shadow:0px 0px 0px;
+    min-width:inherit;
+    background-color:rgba(255, 255, 255, 0);
+}
+
+.active{
+    background-color:rgba(193, 181, 181, 0.18);
+}
+
+.list-icon-avatar{
+    width: 48px;
+    border-radius: 50%;
+    background-color: rgba(95, 98, 101, 0.40);
+    height: 48px;
+    text-align: center;
+    margin-top: 16px;
+    margin-right:14px;
+}
+.list-icon{
+    margin-top:12px;
+}
+
+/* LIST FOOTER  STARTS
+.list-footer{
+    height:50px;
+}
+.list-footer button{
+    height:50px;
+} */
+.list-footer p{
+    color:rgba(111, 111, 111, 0.51);
+    font-size:16px;
+    margin-top:22px;
+}
+/* LIST FOOTER  ENDS */

@@ -1,0 +1,68 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')"  ng-show="isAuthorized">
+    <md-toolbar>
+        <h1 class="md-toolbar-tools">{{title}}</h1>
+    </md-toolbar>
+    <md-content>
+
+        <!-- <md-list ng-repeat="item in navigationList"> -->
+        <!--     <md-list-item ng-if="item.show" ng-click='navigateTo(item.when)'> -->
+        <!--         <md-icon>{{item.icon}}</md-icon> -->
+        <!--         <p>{{item.name}}</p> -->
+        <!--     </md-list-item> -->
+        <!-- </md-list> -->
+
+        <md-list ng-repeat="item in navigationList">
+
+            <md-list-item ng-if="item.show" ng-click="navigateOrToggle(item)">
+                <p>{{item.name}}</p>
+
+                <md-icon ng-if="item.showSubItem && item.subItems.length>0">keyboard_arrow_up</md-icon>
+                <md-icon ng-if="item.showSubItem===false && item.subItems.length>0">keyboard_arrow_down</md-icon>
+
+            </md-list-item>
+            <div class="animate-hide" ng-show="item.showSubItem">
+                <md-list-item ng-repeat="subItem in item.subItems" ng-click="navigateTo(subItem.when)">
+                    <p style="padding-left:10px;">
+                        <md-icon>{{subItem.icon}}</md-icon>
+                        <span style="padding-left:20px;">{{subItem.name}}</span>
+                    </p>
+                </md-list-item>
+            </div>
+            <md-divider></md-divider>
+        </md-list>
+    </md-content>
+</md-sidenav>
+
+<div layout="column" flex>
+    <md-toolbar role="application" layout="row" layout-align="start center" class="md-toolbar-tools md-whiteframe-z2" ng-show="isAuthorized">
+        <md-button class="md-icon-button" hide-gt-md ng-click="toggleLeftMenu()">
+            <md-icon class="material-icons">menu</md-icon>
+        </md-button>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="openDebug()">
+            <md-icon class="material-icons">bug_report</md-icon>
+        </md-button>
+        <md-menu>
+            <md-button aria-label="Open account menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin>more_vert</md-icon>
+            </md-button>
+            <md-menu-content width="3">
+                <md-menu-item>
+                    <md-button aria-label="My account" ng-click="navigateTo('account')">
+                        <md-icon class="material-icons">account_box</md-icon>
+                        My Account
+                    </md-button>
+
+                </md-menu-item>
+
+
+                <md-menu-item>
+                    <md-button aria-label="Logout" ng-click="navigateTo('logout')">
+                        <md-icon class="material-icons">exit_to_app</md-icon>
+                        Logout
+                    </md-button>
+
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+</md-toolbar>

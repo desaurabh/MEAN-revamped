@@ -1,0 +1,144 @@
+<md-content ng-cloak layout-padding>
+    <h3 ng-show="show">Step 2</h3>
+    <p ng-show="show">Add company details</p>
+    <form name="companyForm" layout="column" flex>
+
+        <div flex>
+            <md-input-container class="md-block">
+                <label>Company name</label>
+                <input type="text" name="name" ng-model="company.name" required ng-disabled="disabled" />
+                <div ng-messages="companyForm.name.$error">
+                    <div ng-message="required">Company name is required</div>
+                </div>
+            </md-input-container>
+        </div>
+
+
+
+
+        <!-- email & website-->
+        <div layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Contact email</label>
+                <input type="email" name="email" ng-model="company.email" required ng-disabled="disabled" />
+                <div ng-messages="companyForm.email.$error">
+                    <div ng-message="required">Contact email is required</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container class="md-block" flex>
+                <label>Website</label>
+                <input type="text" name="website" ng-model="company.website" ng-disabled="disabled" />
+                <div ng-messages="companyForm.website.$error">
+                </div>
+            </md-input-container>
+
+
+        </div>
+
+
+
+
+        <!-- phone numbers -->
+        <div layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Phone one</label>
+                <input type="text" name="phoneOne" ng-model="company.phoneOne" required ng-disabled="disabled" />
+                <div ng-messages="companyForm.phoneOne.$error">
+                    <div ng-message="required">Primary phone number is required</div>
+                </div>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Phone two</label>
+                <input type="text" name="phoneTwo" ng-model="company.phoneTwo" ng-disabled="disabled" />
+                <div ng-messages="companyForm.phoneTwo.$error">
+
+                </div>
+
+            </md-input-container>
+
+
+
+
+        </div>
+
+
+
+
+
+        <!-- address info -->
+
+        <div layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Street</label>
+                <input type="text" name="street" ng-model="company.address.street" required ng-disabled="disabled" />
+                <div ng-messages="companyForm.street.$error">
+                    <div ng-message="required">Street address is required</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container class="md-block" flex>
+                <label>Locality</label>
+                <input type="text" name="locality" ng-model="company.address.locality" required ng-disabled="disabled" />
+                <div ng-messages="companyForm.locality.$error">
+                    <div ng-message="required">Locality address is required</div>
+                </div>
+
+            </md-input-container>
+        </div>
+
+
+        <div layout="row">
+
+            <md-input-container class="md-block" flex>
+                <label>State</label>
+                <md-select ng-model="company.address.state" name="state" required ng-disabled="disabled">
+                    <md-option ng-repeat="state in states" value="{{state}}">{{state}}</md-option>
+                </md-select>
+                <div ng-messages="companyForm.state.$error">
+                    <div ng-message="required">State is required</div>
+                </div>
+
+            </md-input-container>
+
+
+
+            <md-input-container class="md-block" flex>
+                <label>City</label>
+                <md-select name="city" md-on-open="loadCities()" ng-model="company.address.city" required ng-disabled="disabled">
+                    <md-option ng-repeat="city in cities track by $index" value="{{city.city}}">
+                        {{city.city}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="companyForm.city.$error">
+                    <div ng-message="required">City is required</div>
+                </div>
+
+            </md-input-container>
+
+
+
+
+            <md-input-container class="md-block" flex>
+                <label>Pincode</label>
+                <input type="text" name="pincode" ng-model="company.address.pincode" required ng-disabled="disabled" number/>
+                <div ng-messages="companyForm.pincode.$error">
+                    <div ng-message="required">Pincode is required</div>
+                </div>
+
+            </md-input-container>
+
+        </div>
+        <div layout="row">
+            <span flex></span>
+            <md-button ng-click="submit()" class="md-primary md-raised" ng-disabled='(companyForm.name.$invalid===false && companyForm.email.$invalid===false && companyForm.phoneOne.$invalid===false && companyForm.street.$invalid===false  && companyForm.locality.$invalid===false  && companyForm.state.$invalid===false  && companyForm.city.$invalid===false  && companyForm.pincode.$invalid===false && disabled===false)===false' ng-click='submit()' aria-label="Submit">
+                {{submitText}}
+            </md-button>
+            <md-button ng-if="show" ng-click="reset()">Reset</md-button>
+        </div>
+    </form>
+</md-content>

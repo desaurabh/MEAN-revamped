@@ -1,0 +1,76 @@
+<div ng-cloak layout-margin layout="row">
+    <div flex-md="27"  layout-margin layout="column">
+        <div flex>
+            <img ng-if="authService.user.hasOwnProperty('avatar')===false" src="http://res.cloudinary.com/ddmfgtsxy/image/upload/v1452700962/default.png" class="rectangular-avatar" />
+
+            <img ng-if="authService.user.hasOwnProperty('avatar')" src="{{authService.user.avatar.url}}" class="rectangular-avatar" />
+        </div>
+        <div flex>
+            <span class="edit-avatar" ngf-select="editImage(avatar, authService.user)" ng-model="avatar" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="5MB"> Edit </span>
+        </div>
+    </div>
+
+    <form name='form' flex-md flex-sm flex>
+        <div layout="row" flex>
+            <md-input-container flex class="md-block">
+                <label>First name</label>
+                <input type='text' name='fName' ng-model='user.fName' required ng-pattern="/^[a-zA-Z]*$/" maxlength="30" minlength="2" ng-disabled="disabled">
+                <span ng-messages='form.fName.$error'>
+		  <span ng-message='required'>First name is required</span>
+                <span ng-message='pattern'>First name is not valid</span>
+                <span ng-message='minlength'>Length must be greater then 2</span>
+                </span>
+            </md-input-container>
+
+            <md-input-container flex class="md-block">
+                <label>Last name</label>
+                <input type='text' name='lName' ng-model='user.lName' required ng-pattern="/^[a-zA-Z]*$/" maxlength="60" minlength="2" ng-disabled="disabled">
+                <span ng-messages='form.lName.$error'>
+		  <span ng-message='required'>Last name is required</span>
+                <span ng-message='pattern'>Last name is not valid</span>
+                <span ng-message='minlength'>Length must be greater then 2</span>
+                </span>
+            </md-input-container>
+        </div>
+
+        <div layout="row" flex layout-xs="column">
+            <md-input-container class="md-block" flex>
+                <label>Email</label>
+                <input type='text' name='email' ng-model='user.email' required ng-pattern="/^.+@.+\..+$/" maxlength="150" minlength="8" ng-disabled="disabled">
+                <span ng-messages='form.email.$error'>
+		  <span ng-message='required'>Email is required</span>
+                <span ng-message='pattern'>Email is not valid</span>
+                <span ng-message='minlength'>Length must be greater then 6</span>
+                </span>
+            </md-input-container>
+
+
+
+        </div>
+        <div layout="row" flex layout-xs="column">
+            <md-input-container class="md-block" flex>
+                <label>Gender</label>
+                <md-select ng-model="user.gender" name="gender" required ng-disabled="disabled">
+                    <md-option ng-repeat="gender in ['Male','Female']" value="{{gender}}">
+                        {{gender}}
+                    </md-option>
+                </md-select>
+                <span ng-messages="form.gender.$error">
+	    <span ng-message="required">Please select a gender</span>
+                </span>
+            </md-input-container>
+            <md-datepicker ng-model="user.born" md-placeholder="Birth date" style="padding-top:14px;" ng-disabled="disabled">
+            </md-datepicker>
+
+
+        </div>
+        <div layout="row" layout-xs="column" layout-align-gt-sm="end center" flex style="padding:0px;" ng-show="!show">
+            <span flex></span>
+            <md-button class="md-primary md-raised" ng-disabled='(form.email.$invalid===false && form.fName.$invalid===false && form.lName.$invalid===false && disabled===false)===false' ng-click='updateMyProfile()'>
+                Update
+            </md-button>
+        </div>
+
+
+    </form>
+</div>

@@ -1,0 +1,1 @@
+x<company-form  model="company" on-submit="createCompany" on-reset="onReset" disabled-inputs="disabled" entire-form="true" submit-text="'register'" layout-margin class="md-whiteframe-z1" flex="60"></company-form>

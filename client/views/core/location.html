@@ -1,0 +1,48 @@
+<div ng-cloak flex flex="80" flex-xs="100" flex-sm style="margin:0px;" layout-margin>
+    <section class="md-whiteframe-z1 panel-form">
+        <md-toolbar flex class="md-primary panel-toolbar">
+            <div class="md-toolbar-tools">
+                <h2>Registered locations</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="add()">
+                    <md-tooltip ng-if="tooltip">
+                        New location
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+            </div>
+
+        </md-toolbar>
+
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-repeat="location in locations track by $index" style="padding-left:16px;">
+                <span class="list-icon-avatar"><md-icon class="list-icon">room</md-icon></span>
+
+
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{location.name}}</h3>
+                    <h4>{{location.address.city}} {{location.address.state}}</h4>
+                    <p>{{location.email}}</p>
+                </div>
+
+
+
+                <div flex layout="row" layout-align="end center" style="margin-top:20px;">
+
+                    <md-button class="md-icon-button" style="margin-left:-40px;" ng-click="edit(location)">
+                        <md-icon>description</md-icon>
+                    </md-button>
+
+                    <md-button class="md-icon-button" ng-href="settings/location/add-group/{{location._id}}">
+                        <md-icon>group_add</md-icon>
+                    </md-button>
+                </div>
+
+                <md-divider ng-if="$index<=3"></md-divider>
+            </md-list-item>
+
+        </md-list>
+        <list-footer data="locations" rest="rest"></list-footer>
+    </section>
+
+</div>

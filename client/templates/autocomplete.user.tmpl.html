@@ -1,0 +1,10 @@
+<md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getItems(searchText)">
+    <md-item-template>
+      <span md-hightlight-text="searchText" md-highlight-flags="^i">
+	{{item.fName}} {{item.lName}}
+			</span>
+    </md-item-template>
+    <md-not-found>
+      No matching {{searchText}} record were found.
+    </md-not-found>
+</md-autocomplete>
